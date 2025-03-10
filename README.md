@@ -29,9 +29,9 @@ cd store_application
 
 ### 2. Configure the Database
 
-- **H2 Database**:
-  ```properties
- spring.datasource.url=jdbc:h2:mem:testdb;
+- **H2 Database**
+```properties
+spring.datasource.url=jdbc:h2:mem:testdb;
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=password
@@ -43,7 +43,7 @@ spring.jpa.properties.hibernate.format_sql=true
 
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
-  ```
+```
 
 
 ### 3. Build the Project
