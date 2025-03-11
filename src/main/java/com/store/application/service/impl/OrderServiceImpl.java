@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.store.application.exception.InsufficientStockException;
+import com.store.application.exception.OutOfStockException;
 import com.store.application.dto.Constants;
 import com.store.application.dto.OrderResponse;
 import com.store.application.entity.*;
@@ -61,7 +61,7 @@ public class OrderServiceImpl implements OrderService {
             if (product.getAvailable() < cartItem.getQuantity()) {
                 logger.error("Insufficient stock for product {}. Requested: {}, Available: {}",
                         product.getTitle(), cartItem.getQuantity(), product.getAvailable());
-                throw new InsufficientStockException(Constants.INSUFFICIENT_STOCK);
+                throw new OutOfStockException(Constants.INSUFFICIENT_STOCK);
             }
         }
 

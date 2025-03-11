@@ -3,6 +3,7 @@ package com.store.application.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -15,6 +16,7 @@ import com.store.application.dto.*;
 
 
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;

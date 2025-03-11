@@ -14,5 +14,4 @@ public class OrderResponse {
     private String email;
     private Long orderId;
     private BigDecimal totalAmount;
-
 }

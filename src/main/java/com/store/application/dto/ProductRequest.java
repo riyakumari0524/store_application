@@ -14,5 +14,4 @@ public class ProductRequest {
     private String title;
     private int available;
     private BigDecimal price;
-
 }

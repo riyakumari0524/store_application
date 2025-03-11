@@ -1,15 +1,21 @@
 package com.store.application.exception;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Builder
 @AllArgsConstructor
-public class ErrorResponse {
-    private int status;
-    private String error;
-    private String message;
-    private String path;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public final class ErrorResponse {
+
+    private final int status;
+
+    private final String error;
+
+    private final String message;
+
+    private final String path;
 }

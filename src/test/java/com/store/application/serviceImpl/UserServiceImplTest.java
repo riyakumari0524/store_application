@@ -16,9 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.store.application.dto.UserRequest;
 import com.store.application.dto.UserResponse;
 import com.store.application.entity.User;
-import com.store.application.exception.IncorrectPasswordException;
+import com.store.application.exception.InvalidPasswordException;
 import com.store.application.exception.NotFoundException;
-import com.store.application.exception.UserAlreadyExistsException;
+import com.store.application.exception.DuplicateUserException;
 import com.store.application.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -65,7 +65,7 @@ class UserServiceImplTest {
 
         when(userRepository.findByEmail(request.getEmail())).thenReturn(Optional.of(new User()));
 
-        assertThrows(UserAlreadyExistsException.class, () -> userService.registerUser(request));
+        assertThrows(DuplicateUserException.class, () -> userService.registerUser(request));
         verify(userRepository, never()).save(any(User.class));
     }
 
@@ -116,7 +116,7 @@ class UserServiceImplTest {
 
         when(userRepository.findByEmail(email)).thenReturn(Optional.of(user));
 
-        assertThrows(IncorrectPasswordException.class, () -> userService.loginUser(email, wrongPassword, session));
+        assertThrows(InvalidPasswordException.class, () -> userService.loginUser(email, wrongPassword, session));
         verify(session, never()).setAttribute(anyString(), anyLong());
     }
 }

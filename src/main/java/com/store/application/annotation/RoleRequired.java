@@ -10,6 +10,6 @@ import com.store.application.entity.Role;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RoleRequired {
-    Role[] value();
+    Role[] value() default {};
 }
 

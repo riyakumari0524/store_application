@@ -17,6 +17,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "carts")
@@ -35,6 +36,7 @@ public class Cart {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart", orphanRemoval = true,fetch = FetchType.LAZY )
+    @ToString.Exclude
     private List<CartItem> items = new ArrayList<>();
 
 }

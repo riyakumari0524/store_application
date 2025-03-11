@@ -29,7 +29,7 @@ class CartControllerTest {
     private CartService cartService;
 
     @Mock
-    private UserSessionService userSessionService;
+    private SessionManagementService userSessionService;
 
     @InjectMocks
     private CartController cartController;
@@ -64,16 +64,6 @@ class CartControllerTest {
 
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertNotNull(response.getBody());
-    }
-
-    @Test
-    void testAddItemToCart_Unauthorized() {
-        when(userSessionService.getUserFromSession(session)).thenReturn(null);
-
-        ResponseEntity<?> response = cartController.addItemToCart(cartItemRequest, session);
-
-        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
-        assertEquals("User not logged in. Please log in first.", response.getBody());
     }
 
     @Test

@@ -13,8 +13,8 @@ public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(UserAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleUserAlreadyExists(UserAlreadyExistsException ex, HttpServletRequest request) {
+    @ExceptionHandler(DuplicateUserException.class)
+    public ResponseEntity<ErrorResponse> handleUserAlreadyExists(DuplicateUserException ex, HttpServletRequest request) {
         return buildErrorResponse(ex, HttpStatus.CONFLICT, request);
     }
 
@@ -23,8 +23,8 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(ex, HttpStatus.NOT_FOUND, request);
     }
 
-    @ExceptionHandler(IncorrectPasswordException.class)
-    public ResponseEntity<ErrorResponse> handleIncorrectPassword(IncorrectPasswordException ex, HttpServletRequest request) {
+    @ExceptionHandler(InvalidPasswordException.class)
+    public ResponseEntity<ErrorResponse> handleIncorrectPassword(InvalidPasswordException ex, HttpServletRequest request) {
         return buildErrorResponse(ex, HttpStatus.UNAUTHORIZED, request);
     }
 
@@ -33,8 +33,8 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(ex, HttpStatus.FORBIDDEN, request);
     }
 
-    @ExceptionHandler(InsufficientStockException.class)
-    public ResponseEntity<ErrorResponse> handleInsufficientStock(InsufficientStockException ex, HttpServletRequest request) {
+    @ExceptionHandler(OutOfStockException.class)
+    public ResponseEntity<ErrorResponse> handleInsufficientStock(OutOfStockException ex, HttpServletRequest request) {
         return buildErrorResponse(ex, HttpStatus.BAD_REQUEST, request);
     }
 

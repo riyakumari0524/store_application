@@ -1,6 +1,7 @@
 package com.store.application.service.impl;
 
 import com.store.application.entity.Role;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service

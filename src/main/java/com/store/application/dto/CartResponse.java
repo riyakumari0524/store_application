@@ -16,7 +16,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartResponse {
-
     private List<CartItemDetails> cartItems;
     private BigDecimal total;
 }
