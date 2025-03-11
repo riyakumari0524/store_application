@@ -38,6 +38,11 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(ex, HttpStatus.BAD_REQUEST, request);
     }
 
+    @ExceptionHandler(InvalidStockException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidStock(InvalidStockException ex, HttpServletRequest request) {
+        return buildErrorResponse(ex, HttpStatus.BAD_REQUEST, request);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneralException(Exception ex, HttpServletRequest request) {
         logger.error("Unexpected error occurred: {}", ex.getMessage(), ex);

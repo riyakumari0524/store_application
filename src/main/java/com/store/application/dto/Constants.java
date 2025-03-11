@@ -12,6 +12,7 @@ public final class Constants {
     public static final String CART_NOT_FOUND = "No cart was found for this user.";
     public static final String CART_ITEM_NOT_FOUND = "The item was not found in your cart.";
     public static final String INSUFFICIENT_STOCK = "Sorry, there is not enough stock for product: ";
+    public static final String INVALID_STOCK = "Available stock must be greater than 0.";
 
     // User session management
     public static final String USER_SESSION_ID = "userId";

@@ -3,6 +3,7 @@ package com.store.application.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.store.application.exception.InvalidStockException;
 import com.store.application.exception.OutOfStockException;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -69,7 +70,7 @@ public class ProductServiceImpl implements ProductService {
 
         if (productRequest.getAvailable() <= 0) {
             logger.error("Invalid available stock: {}", productRequest.getAvailable());
-            throw new OutOfStockException(Constants.INSUFFICIENT_STOCK);
+            throw new InvalidStockException(Constants.INVALID_STOCK);
         }
 
         Product product = new Product();
